@@ -50,7 +50,7 @@
     </tr>
     <tr>
       <td>Testing</td>
-      <td>🧪 Unit Testing, Jasmine</td>
+      <td>🧪 Jasmine, Jest</td>
     </tr>
     <tr>
       <td>Frameworks</td>
