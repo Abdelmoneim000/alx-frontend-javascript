@@ -1,5 +1,6 @@
 // BEGIN: Test Suite
 import { taskFirst, getLast, taskNext } from "../0-constants";
+import taskBlock  from "../1-block-scoped";
 describe('0-constants.js', () => {
   // Test Case 1
   test('A Test for taskFirst Function', () => {
@@ -17,3 +18,12 @@ describe('0-constants.js', () => {
   });
 });
 // END: Test Suite
+
+// Path: 0x00-ES6_basic/tests/1-block_scope.test.js
+describe('1-block_scope.js', () => {
+  // Test Case 1
+  test('Test the taskBlock function', () => {
+    expect(taskBlock(true)).toEqual([false, true]);
+    expect(taskBlock(false)).toEqual([false, true]);
+  });
+});
