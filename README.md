@@ -5,9 +5,11 @@
 </div>
 
 <br>
+
 > [!NOTE]
 > This is a repository for my front-end track, I will be updating this repository as I learn new technologies along the Journey.
 <br>
+
 > [!TIP]
 > use dark mode in your browser for better experience while reading!!
 
