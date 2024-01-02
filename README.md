@@ -23,6 +23,7 @@
 
 <h3>Technologies used :</h3>
 
+<div align="center">
 <table>
   <thead>
     <tr>
@@ -81,6 +82,7 @@
     </tr>
   </tbody>
 </table>
+</div>
 
 ---
 
