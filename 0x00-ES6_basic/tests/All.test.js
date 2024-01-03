@@ -11,6 +11,7 @@ import getBudgetObject from "../7-getBudgetObject.js";
 import getBudgetForCurrentYear from "../8-getBudgetCurrentYear.js";
 import getFullBudgetObject from "../9-getFullBudget.js";
 import appendToEachArrayValue from "../10-loops.js";
+import createEmployeesObject from "../11-createEmployeesObject.js";
 
 // modules import
 import fs from 'fs';
@@ -173,4 +174,21 @@ describe('10-loops.js', () => {
   test('Test the appendToEachArrayValue function', () => {
     expect(appendToEachArrayValue(arr, 'correctly-')).toEqual(['correctly-appended', 'correctly-fixed', 'correctly-displayed']);
   })
+});
+
+// Path: 0x00-ES6_basic/tests/11-createEmployeesObject.test.js
+describe('11-createEmployeesObject.js', () => {
+  let arr = ['Sara', 'Bob', 'Jill'];
+  //Test Case 1
+  test('Test the createEmployeesObject function', () => {
+    expect(createEmployeesObject('Software', arr)).toEqual({ Software: ['Sara', 'Bob', 'Jill'] });
+  });
+  // Test Case 2
+  test('Test the keynames of the output', () => {
+    expect(createEmployeesObject('Software', arr)).toMatchObject({ Software: ['Sara', 'Bob', 'Jill'] });
+  });
+  // Test Case 3
+  test('Test the Object to have a property with the same name of the department', () => {
+    expect(createEmployeesObject('Software', arr)).toHaveProperty('Software');
+  });
 });
