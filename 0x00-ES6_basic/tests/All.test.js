@@ -1,10 +1,14 @@
 // BEGIN: Test Suite
+// functions import
 import { taskFirst, getLast, taskNext } from "../0-constants";
 import taskBlock  from "../1-block-scoped";
 import getNeighborhoodsList  from "../2-arrow";
+import getSumOfHoods from '../3-default-parameter.js';
+import returnHowManyArguments from '../4-rest-parameter.js';
+
+// modules import
 import fs from 'fs';
 import path from 'path';
-import getSumOfHoods from '../3-default-parameter.js';
 
 describe('0-constants.js', () => {
   // Test Case 1
@@ -62,5 +66,15 @@ describe('3-default_parameter.js', () => {
     const data = fs.readFileSync(path.resolve(__dirname, '../3-default-parameter.js'), 'utf8');
     const lines = data.split('\n').length;
     expect(lines).toEqual(4);
+  });
+});
+
+// Path: 0x00-ES6_basic/tests/4-rest_parameter.test.js
+describe('4-rest_parameter.js', () => {
+  // Test Case 1
+  test('Test the returnHowManyArguments function', () => {
+    expect(returnHowManyArguments('one', 'two')).toEqual(2);
+    expect(returnHowManyArguments('one', 'two', 'three', 'four')).toEqual(4);
+    expect(returnHowManyArguments()).toEqual(0);
   });
 });
