@@ -10,6 +10,7 @@ import getSanFranciscoDescription from "../6-string-interpolation.js";
 import getBudgetObject from "../7-getBudgetObject.js";
 import getBudgetForCurrentYear from "../8-getBudgetCurrentYear.js";
 import getFullBudgetObject from "../9-getFullBudget.js";
+import appendToEachArrayValue from "../10-loops.js";
 
 // modules import
 import fs from 'fs';
@@ -162,5 +163,14 @@ describe('9-getFullBudget.js', () => {
   // Test Case 4
   test('Test the getIncomeInEuros function', () => {
     expect(obj.getIncomeInEuros(15)).toEqual('15 euros');
+  })
+});
+
+// Path: 0x00-ES6_basic/tests/10-loops.test.js
+describe('10-loops.js', () => {
+  let arr = ['appended', 'fixed', 'displayed'];
+  //Test Case 1
+  test('Test the appendToEachArrayValue function', () => {
+    expect(appendToEachArrayValue(arr, 'correctly-')).toEqual(['correctly-appended', 'correctly-fixed', 'correctly-displayed']);
   })
 });
