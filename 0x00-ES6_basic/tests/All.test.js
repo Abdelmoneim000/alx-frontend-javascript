@@ -6,6 +6,7 @@ import getNeighborhoodsList  from "../2-arrow";
 import getSumOfHoods from '../3-default-parameter.js';
 import returnHowManyArguments from '../4-rest-parameter.js';
 import concatArrays from '../5-spread-operator.js';
+import getSanFranciscoDescription from "../6-string-interpolation.js";
 
 // modules import
 import fs from 'fs';
@@ -93,4 +94,16 @@ describe('5-spread_operator.js', () => {
     const lines = data.split('\n').length;
     expect(lines).toEqual(4);
   })
+});
+
+// Path: 0x00-ES6_basic/tests/6-string_interpolation.test.js
+describe('6-string_interpolation.js', () => {
+  // Test Case 1
+  test('Test the getSanFranciscoDescription function', () => {
+    const res = getSanFranciscoDescription();
+    expect(res).toMatch(/As of 2017, it was the seventh-highest income county in the United States/);
+    expect(res).toMatch(/with a per capita personal income of \$119,868./);
+    expect(res).toMatch(/and a GDP per capita of \$178,479./);
+    expect(res).toMatch(/As of 2017, it was the seventh-highest income county in the United States, with a per capita personal income of \$119,868. As of 2015, San Francisco proper had a GDP of \$154.2 billion, and a GDP per capita of \$178,479./);
+  });
 });
