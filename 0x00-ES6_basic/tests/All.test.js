@@ -12,6 +12,7 @@ import getBudgetForCurrentYear from "../8-getBudgetCurrentYear.js";
 import getFullBudgetObject from "../9-getFullBudget.js";
 import appendToEachArrayValue from "../10-loops.js";
 import createEmployeesObject from "../11-createEmployeesObject.js";
+import createReportObject from "../12-createReportObject.js";
 
 // modules import
 import fs from 'fs';
@@ -191,4 +192,27 @@ describe('11-createEmployeesObject.js', () => {
   test('Test the Object to have a property with the same name of the department', () => {
     expect(createEmployeesObject('Software', arr)).toHaveProperty('Software');
   });
+});
+
+// Path: 0x00-ES6_basic/tests/12-createReportObject.test.js
+describe('12-createReportObject.js', () => {
+  const employees = {
+    ...createEmployeesObject('engineering', ['Bob', 'Jane']),
+    ...createEmployeesObject('marketing', ['Sylvie'])
+  };
+
+  const report = createReportObject(employees);
+  // Test Case 1
+  test('Test if createReportObject function returns all employees object', () => {
+    expect(report).toMatchObject({allEmployees: { engineering: [ 'Bob', 'Jane' ], marketing: [ 'Sylvie' ] }});
+    expect(report.allEmployees).toHaveProperty("engineering");
+  });
+  // Test Case 2
+  test('Test if createReportObject has a method for counting', () => {
+    expect(report).toMatchObject({ getNumberOfDepartments : expect.any(Function)});
+  });
+  // Test Case 3
+  test('Test the result of counting method for the object', () => {
+    expect(report.getNumberOfDepartments(report.allEmployees)).toEqual(2);
+  })
 });
