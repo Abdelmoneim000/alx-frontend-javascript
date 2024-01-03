@@ -5,6 +5,7 @@ import taskBlock  from "../1-block-scoped";
 import getNeighborhoodsList  from "../2-arrow";
 import getSumOfHoods from '../3-default-parameter.js';
 import returnHowManyArguments from '../4-rest-parameter.js';
+import concatArrays from '../5-spread-operator.js';
 
 // modules import
 import fs from 'fs';
@@ -77,4 +78,19 @@ describe('4-rest_parameter.js', () => {
     expect(returnHowManyArguments('one', 'two', 'three', 'four')).toEqual(4);
     expect(returnHowManyArguments()).toEqual(0);
   });
+});
+
+// Path: 0x00-ES6_basic/tests/5-spread_operator.test.js
+describe('5-spread_operator.js', () => {
+  // Test Case 1
+  test('Test the concatArrays function', () => {
+    expect(concatArrays(['a', 'b'], ['c', 'd'], 'good')).toEqual(['a', 'b', 'c', 'd', 'g', 'o', 'o', 'd']);
+    expect(concatArrays(['a', 'b'], ['c', 'd'], 'Hello')).toEqual(['a', 'b', 'c', 'd', 'H', 'e', 'l', 'l', 'o']);
+  });
+  // Test Case 2
+  test('The function body should be one line long', () => {
+    const data = fs.readFileSync(path.resolve(__dirname, '../5-spread-operator.js'), 'utf8');
+    const lines = data.split('\n').length;
+    expect(lines).toEqual(4);
+  })
 });
