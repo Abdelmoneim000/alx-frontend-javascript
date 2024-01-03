@@ -7,6 +7,7 @@ import getSumOfHoods from '../3-default-parameter.js';
 import returnHowManyArguments from '../4-rest-parameter.js';
 import concatArrays from '../5-spread-operator.js';
 import getSanFranciscoDescription from "../6-string-interpolation.js";
+import getBudgetObject from "../7-getBudgetObject.js";
 
 // modules import
 import fs from 'fs';
@@ -107,3 +108,16 @@ describe('6-string_interpolation.js', () => {
     expect(res).toMatch(/As of 2017, it was the seventh-highest income county in the United States, with a per capita personal income of \$119,868. As of 2015, San Francisco proper had a GDP of \$154.2 billion, and a GDP per capita of \$178,479./);
   });
 });
+
+// Path: 0x00-ES6_basic/tests/7-getBudgetObject.test.js
+describe('7-getBudgetObject', () => {
+  const obj = getBudgetObject(15, 2, 1000)
+  //Test Case 1
+  test('Test the getBudgetObject function', () => {
+    expect(obj).toEqual({ income: 15, gdp: 2, capita: 1000 })
+  })
+  // Test Case 2
+  test('Test the keynames of the output', () => {
+    expect(obj).toMatchObject({ income : 15})
+  })
+})
