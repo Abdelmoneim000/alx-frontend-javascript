@@ -8,6 +8,7 @@ import returnHowManyArguments from '../4-rest-parameter.js';
 import concatArrays from '../5-spread-operator.js';
 import getSanFranciscoDescription from "../6-string-interpolation.js";
 import getBudgetObject from "../7-getBudgetObject.js";
+import getBudgetForCurrentYear from "../8-getBudgetCurrentYear.js";
 
 // modules import
 import fs from 'fs';
@@ -120,4 +121,24 @@ describe('7-getBudgetObject', () => {
   test('Test the keynames of the output', () => {
     expect(obj).toMatchObject({ income : 15})
   })
-})
+});
+
+// Path: 0x00-ES6_basic/tests/7-getBudgetCurrentYear.test.js
+describe('7-getBudgetCurrentYear.js', () => {
+  const obj = getBudgetForCurrentYear(15, 2, 1000);
+  const currentYear = new Date().getFullYear();
+  //Test Case 1
+  test('Test the getBudgetForCurrentYear function', () => {
+    expect(obj).toEqual({ 'income-2024': 15, 'gdp-2024': 2, 'capita-2024': 1000 })
+  })
+  // Test Case 2
+  test('Test the keynames of the output', () => {
+    expect(obj).toMatchObject({ 'income-2024' : 15})
+  })
+  // Test Case 3
+  test('Test the current year', () => {
+    expect(obj).toHaveProperty(`income-${currentYear}`);
+    expect(obj).toHaveProperty(`gdp-${currentYear}`);
+    expect(obj).toHaveProperty(`capita-${currentYear}`);
+  })
+});
