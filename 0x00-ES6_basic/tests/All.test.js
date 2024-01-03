@@ -9,6 +9,7 @@ import concatArrays from '../5-spread-operator.js';
 import getSanFranciscoDescription from "../6-string-interpolation.js";
 import getBudgetObject from "../7-getBudgetObject.js";
 import getBudgetForCurrentYear from "../8-getBudgetCurrentYear.js";
+import getFullBudgetObject from "../9-getFullBudget.js";
 
 // modules import
 import fs from 'fs';
@@ -140,5 +141,26 @@ describe('7-getBudgetCurrentYear.js', () => {
     expect(obj).toHaveProperty(`income-${currentYear}`);
     expect(obj).toHaveProperty(`gdp-${currentYear}`);
     expect(obj).toHaveProperty(`capita-${currentYear}`);
+  })
+});
+
+// Path: 0x00-ES6_basic/tests/9-getFullBudget.test.js
+describe('9-getFullBudget.js', () => {
+  const obj = getFullBudgetObject(15, 2, 1000);
+  //Test Case 1
+  test('Test the getFullBudgetObject function', () => {
+    expect(obj).toEqual({ income: 15, gdp: 2, capita: 1000, getIncomeInDollars: expect.any(Function), getIncomeInEuros: expect.any(Function) })
+  })
+  // Test Case 2
+  test('Test the keynames of the output', () => {
+    expect(obj).toMatchObject({ income : 15})
+  })
+  // Test Case 3
+  test('Test the getIncomeInDollars function', () => {
+    expect(obj.getIncomeInDollars(15)).toEqual('$15');
+  })
+  // Test Case 4
+  test('Test the getIncomeInEuros function', () => {
+    expect(obj.getIncomeInEuros(15)).toEqual('15 euros');
   })
 });
