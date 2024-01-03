@@ -21,6 +21,47 @@
 - All the projects here are small tasks that I have done while learning, These tasks must be done solo in order to progress in the program.
 - check the [Projects](#projects) section for more details.
 
+<br>
+<h3>Set up the repository :</h3>
+
+1. Clone this repository to your local machine.
+
+  ```
+  git clone https://github.com/Abdelmoneim000/alx-frontend-javascript.git
+  ```
+2. Navigate to the cloned repository.
+
+  ```bash
+  cd alx-frontend-javascript
+  ```
+3. navigate to the directory in which your tasks are.
+
+  ```bash
+  cd 0x00-ES6_Basics
+  ```
+4. Install the dependencies.
+
+  ```bash
+  npm install
+  ```
+5. for tests, tests are inside the `__tests__` directory, run the following command to run the tests.
+
+  ```bash
+  npm run test
+  ```
+6. for linting, run the following command.
+
+  ```bash
+  npm run lint file_name.js
+  ```
+
+<h3>Testing :</h3>
+Right now, tests are being done using <a href="https://jestjs.io/">Jest</a>, but I will be using <a href="https://jasmine.github.io/">Jasmine</a> in the future.
+
+> [!NOTE]
+> You can contribute in building tests for future cohorts. Create a pull request and I will review it ❤️.
+
+<br>
 <h3>Technologies used :</h3>
 
 <div align="center">
