@@ -1,7 +1,8 @@
 // START TEST SETUP
 // Import functions to be tested
-import getResponseFromAPI from "../1-promise";
+import getResponseFromAPI from "../1-promise"; // Note: Complete 0 and 1 before testing.
 import handleResponseFromAPI from "../2-then";
+import handleProfileSignup from "../3-all";
 
 describe("0-promise.js", () => {
     // Test Case 1
@@ -51,6 +52,27 @@ describe("2-then.js", () => {
         const consoleSpy = jest.spyOn(console, 'log');
         return handleResponseFromAPI(Promise.reject()).catch(() => {
             expect(consoleSpy).toHaveBeenCalledWith("Got a response from the API");
+        });
+    });
+});
+
+describe("3-all.js", () => {
+    // Test Case 1
+    test("shouldn't return anything", () => {
+        return expect(handleProfileSignup()).resolves.toBeUndefined();
+    });
+    // Test Case 2
+    test("should print correct message when passed resolved", () => {
+        const consoleSpy = jest.spyOn(console, 'log');
+        return handleProfileSignup().then(() => {
+            expect(consoleSpy.mock.calls[2][0]).toEqual("photo-profile-1 Guillaume Salva");
+        });
+    });
+    // Test Case 3
+    test("should print correct message when passed rejected", () => {
+        const consoleSpy = jest.spyOn(console, 'log');
+        return handleProfileSignup().catch(() => {
+            expect(consoleSpy.mock.calls[3][0]).toEqual("Signup system offline");
         });
     });
 });
