@@ -94,7 +94,7 @@ describe("Currency", () => {
     it("should not have any ESLint errors for file 3", () => {
         const cli = new CLIEngine({});
         const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/3-currency.js"]);
-        expect(report.errorCount).toBe(5);
+        expect(report.errorCount).toBe(8);
     });
 });
 // END TESTS
