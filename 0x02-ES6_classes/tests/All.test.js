@@ -3,6 +3,8 @@
 import ClassRoom from "../0-classroom";
 import initializeRooms from "../1-make_classrooms";
 
+// Import modules
+const { CLIEngine } = require("eslint");
 
 describe("ClassRoom", () => {
   it("should create a ClassRoom instance with a maxStudentSize", () => {
@@ -24,7 +26,6 @@ describe("initializeRooms", () => {
         new ClassRoom(34)
         ]);
     });
-    const { CLIEngine } = require("eslint");
 
     it("should not have any ESLint errors", () => {
         const cli = new CLIEngine({});
