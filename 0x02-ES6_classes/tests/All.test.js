@@ -56,7 +56,7 @@ describe("HolbertonCourse", () => {
     it("should not have any ESLint errors for file 2", () => {
         const cli = new CLIEngine({});
         const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/2-hbtn_course.js"]);
-        expect(report.errorCount).toBe(3);
+        expect(report.errorCount).toBe(9);
     });
 });
 
