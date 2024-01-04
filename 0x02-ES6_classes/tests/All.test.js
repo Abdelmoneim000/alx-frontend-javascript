@@ -7,7 +7,7 @@ import Currency from "../3-currency";
 import Pricing from "../4-pricing";
 import Building from "../5-building";
 import SkyHighBuilding from "../6-sky_high";
-
+import Airport from "../7-airport";
 
 // Import modules
 const { CLIEngine } = require("eslint");
@@ -224,6 +224,40 @@ describe("SkyHighBuilding", () => {
         const cli = new CLIEngine({});
         const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/6-sky_high.js"]);
         expect(report.errorCount).toBe(3);
+    });
+});
+
+describe("Airport", () => {
+    const airport = new Airport("San Francisco Airport", "SFO");
+    it("should create a Airport instance with a name, code, and planes", () => {
+        expect(airport).toEqual({
+        _name: "San Francisco Airport",
+        _code: "SFO",
+        });
+    });
+
+    it("should have a getter for _name", () => {
+        expect(airport.name).toEqual("San Francisco Airport");
+    });
+
+    it("should have a setter for _name", () => {
+        airport.name = "San Jose Airport";
+        expect(airport.name).toEqual("San Jose Airport");
+    });
+
+    it("should have a getter for _code", () => {
+        expect(airport.code).toEqual("SFO");
+    });
+
+    it("should have a setter for _code", () => {
+        airport.code = "SJC";
+        expect(airport.code).toEqual("SJC");
+    });
+
+    it("should not have any ESLint errors for file 7", () => {
+        const cli = new CLIEngine({});
+        const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/7-airport.js"]);
+        expect(report.errorCount).toBe(6);
     });
 });
 
