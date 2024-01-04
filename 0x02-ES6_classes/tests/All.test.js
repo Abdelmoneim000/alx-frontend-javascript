@@ -5,6 +5,8 @@ import initializeRooms from "../1-make_classrooms";
 import HolbertonCourse from "../2-hbtn_course";
 import Currency from "../3-currency";
 import Pricing from "../4-pricing";
+import Building from "../5-building";
+
 
 // Import modules
 const { CLIEngine } = require("eslint");
@@ -150,6 +152,44 @@ describe("Pricing", () => {
         const cli = new CLIEngine({});
         const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/4-pricing.js"]);
         expect(report.errorCount).toBe(6);
+    });
+});
+
+describe("Building", () => {
+    it("should create a Building instance with a sqft", () => {
+        const building = new Building(100);
+        expect(building).toEqual({
+        _sqft: 100
+        });
+    });
+
+    it("should have a getter for _sqft", () => {
+        const building = new Building(100);
+        expect(building.sqft).toEqual(100);
+    });
+
+    it("should have a setter for _sqft", () => {
+        const building = new Building(100);
+        building.sqft = 200;
+        expect(building.sqft).toEqual(200);
+    });
+
+    it("should have a method evacuationWarningMessage", () => {
+        const building = new Building(100);
+        expect(building.evacuationWarningMessage()).toEqual("The building with 100 square feet is being evacuated.");
+    });
+
+    it("should throw an error when calling evacuationWarningMessage", () => {
+        const building = {
+            _sqft: 100
+        }
+        expect(() => building.evacuationWarningMessage()).toThrow(Error);
+    });
+
+    it("should not have any ESLint errors for file 5", () => {
+        const cli = new CLIEngine({});
+        const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/5-building.js"]);
+        expect(report.errorCount).toBe(4);
     });
 });
 
