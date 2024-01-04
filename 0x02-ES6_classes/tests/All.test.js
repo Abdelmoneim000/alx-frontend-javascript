@@ -6,6 +6,7 @@ import HolbertonCourse from "../2-hbtn_course";
 import Currency from "../3-currency";
 import Pricing from "../4-pricing";
 import Building from "../5-building";
+import SkyHighBuilding from "../6-sky_high";
 
 
 // Import modules
@@ -190,6 +191,39 @@ describe("Building", () => {
         const cli = new CLIEngine({});
         const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/5-building.js"]);
         expect(report.errorCount).toBe(4);
+    });
+});
+
+describe("SkyHighBuilding", () => {
+    const building = new SkyHighBuilding(100, 2);
+    it("should create a SkyHighBuilding instance with a sqft and floors", () => {
+        expect(building).toEqual({
+        _floors: 2,
+        _sqft: 100
+        });
+    });
+
+    it("should be an extension of Building", () => {
+            expect(building instanceof Building).toEqual(true);
+        });
+
+    it("should have a getter for _floors", () => {
+        expect(building.floors).toEqual(2);
+    });
+
+    it("should have a setter for _floors", () => {
+        building.floors = 3;
+        expect(building.floors).toEqual(3);
+    });
+
+    it("should have a method evacuationWarningMessage", () => {
+        expect(building.evacuationWarningMessage()).toEqual("Evacuate slowly the 3 floors");
+    });
+
+    it("should not have any ESLint errors for file 6", () => {
+        const cli = new CLIEngine({});
+        const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/6-sky_high.js"]);
+        expect(report.errorCount).toBe(3);
     });
 });
 
