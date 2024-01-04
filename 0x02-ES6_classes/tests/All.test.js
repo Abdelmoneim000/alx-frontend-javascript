@@ -3,6 +3,8 @@
 import ClassRoom from "../0-classroom";
 import initializeRooms from "../1-make_classrooms";
 import HolbertonCourse from "../2-hbtn_course";
+import Currency from "../3-currency";
+
 // Import modules
 const { CLIEngine } = require("eslint");
 
@@ -58,4 +60,41 @@ describe("HolbertonCourse", () => {
     });
 });
 
+describe("Currency", () => {
+    it("should create a Currency instance with a code and name", () => {
+        const currency = new Currency("USD", "Dollar");
+        expect(currency).toEqual({
+        _code: "USD",
+        _name: "Dollar"
+        });
+    });
+
+    it("should have a getter for _code", () => {
+        const currency = new Currency("USD", "Dollar");
+        expect(currency._code).toEqual("USD");
+    });
+
+    it("should have a getter for _name", () => {
+        const currency = new Currency("USD", "Dollar");
+        expect(currency._name).toEqual("Dollar");
+    });
+
+    it("should have a setter for _code", () => {
+        const currency = new Currency("USD", "Dollar");
+        currency._code = "EUR";
+        expect(currency._code).toEqual("EUR");
+    });
+
+    it("should have a setter for _name", () => {
+        const currency = new Currency("USD", "Dollar");
+        currency._name = "Euro";
+        expect(currency._name).toEqual("Euro");
+    });
+
+    it("should not have any ESLint errors for file 3", () => {
+        const cli = new CLIEngine({});
+        const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/3-currency.js"]);
+        expect(report.errorCount).toBe(5);
+    });
+});
 // END TESTS
