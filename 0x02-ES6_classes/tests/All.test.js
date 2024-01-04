@@ -4,6 +4,7 @@ import ClassRoom from "../0-classroom";
 import initializeRooms from "../1-make_classrooms";
 import HolbertonCourse from "../2-hbtn_course";
 import Currency from "../3-currency";
+import Pricing from "../4-pricing";
 
 // Import modules
 const { CLIEngine } = require("eslint");
@@ -97,4 +98,59 @@ describe("Currency", () => {
         expect(report.errorCount).toBe(8);
     });
 });
+
+describe("Pricing", () => {
+    it("should create a Pricing instance with an amount and currency", () => {
+        const currency = new Currency("USD", "Dollar");
+        const pricing = new Pricing(1, currency);
+        expect(pricing).toEqual({
+        _amount: 1,
+        _currency: currency
+        });
+    });
+
+    it("should have a getter for _amount", () => {
+        const currency = new Currency("USD", "Dollar");
+        const pricing = new Pricing(1, currency);
+        expect(pricing._amount).toEqual(1);
+    });
+
+    it("should have a getter for _currency", () => {
+        const currency = new Currency("USD", "Dollar");
+        const pricing = new Pricing(1, currency);
+        expect(pricing._currency).toEqual(currency);
+    });
+
+    it("should have a setter for _amount", () => {
+        const currency = new Currency("USD", "Dollar");
+        const pricing = new Pricing(1, currency);
+        pricing._amount = 2;
+        expect(pricing._amount).toEqual(2);
+    });
+
+    it("should have a setter for _currency", () => {
+        const currency = new Currency("USD", "Dollar");
+        const pricing = new Pricing(1, currency);
+        const currency2 = new Currency("EUR", "Euro");
+        pricing._currency = currency2;
+        expect(pricing._currency).toEqual(currency2);
+    });
+
+    it("should have a method displayFullPrice", () => {
+        const currency = new Currency("USD", "Dollar");
+        const pricing = new Pricing(1, currency);
+        expect(pricing.displayFullPrice()).toEqual("1 Dollar (USD)");
+    });
+
+    it("should have a static method convertPrice", () => {
+        expect(Pricing.convertPrice(2, 2)).toEqual(4);
+    });
+
+    it("should not have any ESLint errors for file 4", () => {
+        const cli = new CLIEngine({});
+        const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/4-pricing.js"]);
+        expect(report.errorCount).toBe(6);
+    });
+});
+
 // END TESTS
