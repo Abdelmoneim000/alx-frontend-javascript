@@ -9,8 +9,7 @@ import Building from "../5-building";
 import SkyHighBuilding from "../6-sky_high";
 import Airport from "../7-airport";
 import HolbertonClass from "../8-hbtn_class";
-import listOfStudents, {HolbertonClass} from "../9-hoisting";
-
+import Car from "../10-car";
 // Import modules
 const { CLIEngine } = require("eslint");
 
@@ -295,5 +294,26 @@ describe("HolbertonClass", () => {
     });
 });
 
+describe("Car", () => {
+    const car = new Car("mercedes", "s500", "Red");
+    it("should create a Car instance with a brand, motor, and color", () => {
+        expect(car).toEqual({
+        _brand: "mercedes",
+        _motor: "s500",
+        _color: "Red"
+        });
+    });
 
+    it("should clone a Car instance", () => {
+        const car2 = car.cloneCar();
+        expect(car2).toEqual({
+        _brand: "mercedes",
+        _motor: "s500",
+        _color: "Red"
+        });
+    });
+    it("should have a clone method", () => {
+        expect(car.cloneCar).toBeDefined();
+    });
+});
 // END TESTS
