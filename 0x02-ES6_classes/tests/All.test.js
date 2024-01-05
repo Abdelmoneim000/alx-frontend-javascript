@@ -8,6 +8,7 @@ import Pricing from "../4-pricing";
 import Building from "../5-building";
 import SkyHighBuilding from "../6-sky_high";
 import Airport from "../7-airport";
+import HolbertonClass from "../8-hbtn_class";
 
 // Import modules
 const { CLIEngine } = require("eslint");
@@ -258,6 +259,38 @@ describe("Airport", () => {
         const cli = new CLIEngine({});
         const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/7-airport.js"]);
         expect(report.errorCount).toBe(6);
+    });
+});
+
+describe("HolbertonClass", () => {
+    const Holberton = new HolbertonClass(2,"San Francisco");
+
+    it("should create a HolbertonClass instance with a size and location", () => {
+        expect(Holberton).toEqual({
+        _size: 2,
+        _location: "San Francisco"
+        });
+    });
+    it("should have a number value when casted to a number", () => {
+        expect(Number(Holberton)).toEqual(2);
+    });
+
+    it("should be converted into a number when used in a math operation", () => {
+        expect(Holberton * 2).toEqual(4);
+    });
+
+    it("should have a string value when casted to a string", () => {
+        expect(String(Holberton)).toEqual("San Francisco");
+    });
+
+    it("should be converted into a string when used in a string operation", () => {
+        expect(`${Holberton}, USA`).toEqual("San Francisco, USA");
+    });
+
+    it("should not have any ESLint errors for file 8", () => {
+        const cli = new CLIEngine({});
+        const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/8-hbtn_class.js"]);
+        expect(report.errorCount).toBe(4);
     });
 });
 
