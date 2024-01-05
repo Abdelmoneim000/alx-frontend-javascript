@@ -9,6 +9,7 @@ import Building from "../5-building";
 import SkyHighBuilding from "../6-sky_high";
 import Airport from "../7-airport";
 import HolbertonClass from "../8-hbtn_class";
+import { listOfStudents, StudentHolberton } from "../9-hoisting";
 
 // Import modules
 const { CLIEngine } = require("eslint");
@@ -291,6 +292,23 @@ describe("HolbertonClass", () => {
         const cli = new CLIEngine({});
         const report = cli.executeOnFiles(["/home/abod/alx-frontend-javascript/0x02-ES6_classes/8-hbtn_class.js"]);
         expect(report.errorCount).toBe(4);
+    });
+});
+
+describe("listOfStudents", () => {
+    it("should return an array of students", () => {
+        const holbertonClass2020 = new HolbertonClass(2020, 'San Francisco');
+        const holbertonClass2019 = new HolbertonClass(2019, 'San Francisco');
+
+        const students = [
+            new StudentHolberton('Guillaume', 'Salva', holbertonClass2020),
+            new StudentHolberton('John', 'Doe', holbertonClass2020),
+            new StudentHolberton('Albert', 'Clinton', holbertonClass2019),
+            new StudentHolberton('Donald', 'Bush', holbertonClass2019),
+            new StudentHolberton('Jason', 'Sandler', holbertonClass2019),
+        ];
+
+        expect(listOfStudents).toEqual(students);
     });
 });
 
