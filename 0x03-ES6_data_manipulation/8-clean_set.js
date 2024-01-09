@@ -1,6 +1,6 @@
 function cleanSet(set, startString) {
   const arr = [];
-  if(!(set instanceof Set) || typeof startString !== 'string') {
+  if (!(set instanceof Set) || typeof startString !== 'string') {
     return '';
   }
   [...set].map((element) => {
