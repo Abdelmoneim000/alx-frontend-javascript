@@ -4,7 +4,7 @@ function cleanSet(set, startString) {
     return '';
   }
   [...set].map((element) => {
-    if (element.startsWith(startString)) {
+    if (element && element.startsWith(startString)) {
       if (element.slice(startString.length) === '' || startString.length === 0) {
         // do nothing
       } else {
