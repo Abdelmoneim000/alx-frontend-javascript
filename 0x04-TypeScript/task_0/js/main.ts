@@ -34,9 +34,9 @@ table.style.backgroundColor = '#f2f2f2';
 table.appendChild(tbody);
 
 studentList.forEach((student) => {
-    const tr = document.createElement('tr');
-    const td1 = document.createElement('td');
-    const td2 = document.createElement('td');
+    const tr : HTMLTableRowElement = document.createElement('tr');
+    const td1 : HTMLTableDataCellElement = document.createElement('td');
+    const td2 : HTMLTableDataCellElement = document.createElement('td');
 
     td1.style.border = '1px solid black';
     td2.style.border = '1px solid black';
