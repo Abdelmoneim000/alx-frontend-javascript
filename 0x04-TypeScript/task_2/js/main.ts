@@ -45,3 +45,15 @@ function createEmployee(salary : number | string) : DirectorInterface | TeacherI
         return new Director();
     }
 }
+
+function isDirector(employee : DirectorInterface | TeacherInterface) : employee is Director {
+    return (employee instanceof Director);
+}
+
+function executeWork(employee : DirectorInterface | TeacherInterface) : string {
+    if (isDirector(employee)) {
+        return employee.workDirectorTasks();
+    } else {
+        return employee.workTeacherTasks();
+    }
+}
