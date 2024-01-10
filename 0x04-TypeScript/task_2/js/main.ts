@@ -38,6 +38,9 @@ class Teacher implements TeacherInterface {
     }
 }
 
+
+type Subjects = 'Math' | 'History';
+
 function createEmployee(salary : number | string) : DirectorInterface | TeacherInterface {
     if (typeof salary === 'number' && salary < 500) {
         return new Teacher();
@@ -55,5 +58,13 @@ function executeWork(employee : DirectorInterface | TeacherInterface) : string {
         return employee.workDirectorTasks();
     } else {
         return employee.workTeacherTasks();
+    }
+}
+
+function teachClass(todayClass : Subjects) : string {
+    if (todayClass === 'Math') {
+        return 'Teaching Math';
+    } else if (todayClass === 'History') {
+        return 'Teaching History';
     }
 }
